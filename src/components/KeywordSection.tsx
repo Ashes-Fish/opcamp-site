@@ -36,11 +36,11 @@ export default function KeywordSection() {
           </motion.h2>
         </div>
 
-        {/* Asymmetric card layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-y-16 gap-x-8 md:gap-x-12">
-          {/* 01 — 关于良渚 */}
+        {/* Asymmetric horizontal layout */}
+        <div className="flex flex-col md:flex-row md:flex-nowrap gap-6 md:gap-5 lg:gap-8 items-start">
+          {/* 01 — 关于良渚 (wider, normal) */}
           <motion.article
-            className="keyword-card"
+            className="keyword-card flex-1 md:flex-[1.4] min-w-0"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -55,36 +55,14 @@ export default function KeywordSection() {
             <p className="kicker text-xs md:text-sm text-cyan-200/50 mb-4 tracking-wide">
               空间即生活方式
             </p>
-            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide max-w-md">
+            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide">
               良渚有五千年的文明遗址，有大片湿地、稻田、苕溪，有路边随便走走就能遇上的博物馆和老建筑。在良渚这样的地方，空间本身就是一种生活方式。
             </p>
           </motion.article>
 
-          {/* 03 — 关于 taste (positioned upper right) */}
+          {/* 02 — 关于泡沫 (narrower, pulled up) */}
           <motion.article
-            className="keyword-card md:-mt-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.45, delay: 0.15 }}
-          >
-            <span className="marker font-mono text-[10px] tracking-[0.3em] text-cyan-300/30 block mb-5">
-              03
-            </span>
-            <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2">
-              关于 taste
-            </h3>
-            <p className="kicker text-xs md:text-sm text-cyan-200/50 mb-4 tracking-wide">
-              懂生活才能做出好产品
-            </p>
-            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide max-w-md">
-              一个总在出差、不下厨、不散步、不和朋友坐下来好好聊天的人，对生活的颗粒度就是粗的。OPCamp 把审美和生活经验放回产品判断里。
-            </p>
-          </motion.article>
-
-          {/* 02 — 关于泡沫 (offset to the right) */}
-          <motion.article
-            className="keyword-card md:ml-8 md:-mt-8"
+            className="keyword-card flex-1 md:flex-[0.8] min-w-0 md:-mt-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -99,14 +77,36 @@ export default function KeywordSection() {
             <p className="kicker text-xs md:text-sm text-cyan-200/50 mb-4 tracking-wide">
               一群真正有意思的 OPC
             </p>
-            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide max-w-md">
+            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide">
               千万级融资的泡沫，宏大叙事的泡沫，估值曲线的泡沫，伸手一碰就破。我们更相信一个人就是一支队伍，想清楚一个产品，动手做出来，找到第一批用户，自己迭代下去。
             </p>
           </motion.article>
 
-          {/* 04 — 关于水位 */}
+          {/* 03 — 关于 taste (medium, slightly lower) */}
           <motion.article
-            className="keyword-card md:mt-4"
+            className="keyword-card flex-1 md:flex-[1] min-w-0 md:mt-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.45, delay: 0.15 }}
+          >
+            <span className="marker font-mono text-[10px] tracking-[0.3em] text-cyan-300/30 block mb-5">
+              03
+            </span>
+            <h3 className="font-serif text-2xl md:text-3xl text-white/90 mb-2">
+              关于 taste
+            </h3>
+            <p className="kicker text-xs md:text-sm text-cyan-200/50 mb-4 tracking-wide">
+              懂生活才能做出好产品
+            </p>
+            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide">
+              一个总在出差、不下厨、不散步、不和朋友坐下来好好聊天的人，对生活的颗粒度就是粗的。OPCamp 把审美和生活经验放回产品判断里。
+            </p>
+          </motion.article>
+
+          {/* 04 — 关于水位 (wider, aligned bottom) */}
+          <motion.article
+            className="keyword-card flex-1 md:flex-[1.3] min-w-0 md:mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -121,7 +121,7 @@ export default function KeywordSection() {
             <p className="kicker text-xs md:text-sm text-cyan-200/50 mb-4 tracking-wide">
               舒服但不松散，专注但不耗竭
             </p>
-            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide max-w-md">
+            <p className="text-sm md:text-[0.95rem] text-white/45 leading-[1.9] tracking-wide">
               水位太高，就是淹没。水位太低，就是浮夸。水位刚好，是在 48 小时里剥掉不必要的泡沫，找到自己能持续创造的节奏。
             </p>
           </motion.article>
