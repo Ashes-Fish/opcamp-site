@@ -6,6 +6,7 @@ import './App.css'
 import LoadingScreen from './components/LoadingScreen'
 import ErrorScreen from './components/ErrorScreen'
 import GateScreen from './components/GateScreen'
+import GuideScreen from './components/GuideScreen'
 import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import KeywordSection from './components/KeywordSection'
@@ -21,17 +22,16 @@ import FooterSection from './components/FooterSection'
 import FloatingCTA from './components/FloatingCTA'
 
 type AppState = 'loading' | 'ready' | 'error'
+type EntryPhase = 'gate' | 'guide' | 'main'
 
 function App() {
   const [appState, setAppState] = useState<AppState>('loading')
-  const [gateActive, setGateActive] = useState(true)
+  const [entryPhase, setEntryPhase] = useState<EntryPhase>('gate')
 
   useEffect(() => {
-    // Simulate resource loading
     const timer = setTimeout(() => {
       setAppState('ready')
     }, 600)
-
     return () => clearTimeout(timer)
   }, [])
 
@@ -40,15 +40,20 @@ function App() {
     setTimeout(() => setAppState('ready'), 600)
   }, [])
 
-  const handleEnter = useCallback(() => {
-    setGateActive(false)
-    // Enable body scroll
+  const handleGateEnter = useCallback(() => {
+    setEntryPhase('guide')
+  }, [])
+
+  const handleGuideEnter = useCallback(() => {
+    setEntryPhase('main')
     document.body.style.overflow = ''
   }, [])
 
   if (appState === 'error') {
     return <ErrorScreen onRetry={handleRetry} />
   }
+
+  const showMain = entryPhase === 'main'
 
   return (
     <div className="opcamp relative min-h-screen bg-[#071522] overflow-x-hidden">
@@ -69,10 +74,14 @@ function App() {
       </AnimatePresence>
 
       <AnimatePresence>
-        {gateActive && <GateScreen onEnter={handleEnter} />}
+        {entryPhase === 'gate' && <GateScreen onEnter={handleGateEnter} />}
       </AnimatePresence>
 
-      <div className={`relative z-10 transition-opacity duration-500 ${gateActive ? 'opacity-0' : 'opacity-100'}`}>
+      <AnimatePresence>
+        {entryPhase === 'guide' && <GuideScreen onEnter={handleGuideEnter} />}
+      </AnimatePresence>
+
+      <div className={`relative z-10 transition-opacity duration-500 ${showMain ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <HeroSection />
         <AboutSection />
         <KeywordSection />
@@ -87,7 +96,7 @@ function App() {
         <FooterSection />
       </div>
 
-      {!gateActive && <FloatingCTA />}
+      {showMain && <FloatingCTA />}
     </div>
   )
 }

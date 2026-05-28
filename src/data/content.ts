@@ -1,6 +1,16 @@
 import type { ContentData } from '../types'
 
 export const content: ContentData = {
+  onboarding: {
+    marker: '// ONBOARDING',
+    title: '泡前须知',
+    steps: [
+      ['01', '往下滑，看看过往的项目发生了什么，有什么 NPC 和有意思的故事'],
+      ['02', '泡泡能戳，看看更多有趣的创造'],
+      ['03', '觉得这群人还行，觉得事情有意思，欢迎你来～'],
+    ],
+    button: '▸ 探索 OPCamp',
+  },
   aboutParagraphs: [
     '回到创造该有的样子，回到纯粹的「有意思」。',
     '很多人第一次来良渚大多是顺路来的，可能是来看看朋友，可能是来参加一个 meet-up，也可能就是听说「良渚最近聚了一群有意思的人」，过来看看是真是假。',

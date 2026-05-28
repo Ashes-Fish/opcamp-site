@@ -45,6 +45,12 @@ export interface FooterSectionData {
 }
 
 export interface ContentData {
+  onboarding: {
+    marker: string
+    title: string
+    steps: [string, string][]
+    button: string
+  }
   aboutParagraphs: string[]
   keywordStatement: {
     marker: string
