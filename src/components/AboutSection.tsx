@@ -72,7 +72,7 @@ export default function AboutSection() {
               key={i}
               className={
                 i === 0
-                  ? 'lead font-serif text-lg md:text-xl text-white/90 leading-relaxed mb-6'
+                  ? 'lead font-serif text-2xl md:text-3xl text-white/90 leading-relaxed mb-6'
                   : 'text-base md:text-[1.05rem] text-white/70 leading-[1.9] mb-5'
               }
               initial={{ opacity: 0, y: 20 }}
