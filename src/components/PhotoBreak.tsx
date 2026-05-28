@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function PhotoBreak() {
@@ -7,7 +8,7 @@ export default function PhotoBreak() {
       {/* Background image */}
       <div className="break-photo absolute inset-0">
         <img
-          src="/images/bg-beach-bubbles.png"
+          src={img('images/bg-beach-bubbles.png')}
           alt=""
           className="w-full h-full object-cover img-filter opacity-40 md:opacity-60"
           style={{ objectPosition: 'center 30%' }}

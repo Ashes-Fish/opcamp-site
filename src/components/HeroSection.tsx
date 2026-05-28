@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 
 export default function HeroSection() {
   return (
@@ -6,7 +7,7 @@ export default function HeroSection() {
       {/* Background photo */}
       <div className="hero-photo absolute inset-0">
         <img
-          src="/images/bg-sky.png"
+          src={img('images/bg-sky.png')}
           alt=""
           className="w-full h-full object-cover img-filter"
           style={{ objectPosition: 'center 30%' }}

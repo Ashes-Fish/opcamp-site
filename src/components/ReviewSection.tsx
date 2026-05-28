@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 import type { ReviewItem } from '../types'
 
@@ -21,7 +22,7 @@ export default function ReviewSection() {
       {/* Background */}
       <div className="review-photo absolute inset-0">
         <img
-          src="/images/bg-bubble-gun-review.png"
+          src={img('images/bg-bubble-gun-review.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.1] img-filter"
         />

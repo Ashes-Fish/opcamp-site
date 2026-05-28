@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function KeywordSection() {
@@ -7,7 +8,7 @@ export default function KeywordSection() {
       {/* Background */}
       <div className="keyword-photo absolute inset-0">
         <img
-          src="/images/bg-canopy-bubbles.png"
+          src={img('images/bg-canopy-bubbles.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.12] img-filter"
         />

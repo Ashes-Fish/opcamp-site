@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function AboutSection() {
@@ -7,7 +8,7 @@ export default function AboutSection() {
       {/* Background */}
       <div className="about-photo absolute inset-0">
         <img
-          src="/images/bg-final-hero-bubbles.png"
+          src={img('images/bg-final-hero-bubbles.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.15] img-filter"
         />

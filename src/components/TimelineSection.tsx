@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function TimelineSection() {
@@ -7,7 +8,7 @@ export default function TimelineSection() {
       {/* Background */}
       <div className="timeline-photo absolute inset-0">
         <img
-          src="/images/bg-final-soft-bubble.png"
+          src={img('images/bg-final-soft-bubble.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.1]"
         />

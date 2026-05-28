@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function AudienceSection() {
@@ -7,7 +8,7 @@ export default function AudienceSection() {
       {/* Background */}
       <div className="audience-photo absolute inset-0">
         <img
-          src="/images/bg-city-bubbles.png"
+          src={img('images/bg-city-bubbles.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.06]"
         />

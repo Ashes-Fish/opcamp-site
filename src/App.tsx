@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { img } from './utils/paths'
 import './App.css'
 
 import LoadingScreen from './components/LoadingScreen'
@@ -56,7 +57,7 @@ function App() {
         <div
           className="global-bg global-bg-city absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: 'url(/images/bg-city-bubbles.png)',
+            backgroundImage: `url(${img('images/bg-city-bubbles.png')})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

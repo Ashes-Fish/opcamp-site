@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 
 export default function FooterSection() {
@@ -6,7 +7,7 @@ export default function FooterSection() {
     <section id="footer" className="footer-section relative py-24 md:py-32 px-6 md:px-12 lg:px-16 overflow-hidden">
       {/* Background */}
       <img
-        src="/images/bg-giant-bubble.png"
+        src={img('images/bg-giant-bubble.png')}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-[0.15] img-filter"
       />

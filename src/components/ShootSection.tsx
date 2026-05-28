@@ -1,5 +1,6 @@
 import { useRef, useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 import { content } from '../data/content'
 import type { BubbleContent } from '../types'
 import BubbleModal from './BubbleModal'
@@ -106,7 +107,7 @@ export default function ShootSection() {
       {/* Background */}
       <div className="shoot-photo absolute inset-0">
         <img
-          src="/images/bg-bubble-gun-review.png"
+          src={img('images/bg-bubble-gun-review.png')}
           alt=""
           className="w-full h-full object-cover opacity-[0.18] img-filter"
         />
@@ -238,7 +239,7 @@ export default function ShootSection() {
             aria-hidden="true"
           >
             <img
-              src="/images/bubble-pop-gun-icon.png"
+              src={img('images/bubble-pop-gun-icon.png')}
               alt=""
               className="block w-[136px] h-auto"
             />

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/paths'
 
 interface GateScreenProps {
   onEnter: () => void
@@ -18,7 +19,7 @@ export default function GateScreen({ onEnter }: GateScreenProps) {
       <div
         className="gate-bg-bubbles absolute inset-0 opacity-20"
         style={{
-          backgroundImage: 'url(/images/bg-city-bubbles.png)',
+          backgroundImage: `url(${img('images/bg-city-bubbles.png')})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'saturate(1.1) contrast(1.05) brightness(0.92)',
@@ -90,7 +91,7 @@ export default function GateScreen({ onEnter }: GateScreenProps) {
 
           {/* Wand icon */}
           <img
-            src="/images/bubble-wand-icon.png"
+            src={img('images/bubble-wand-icon.png')}
             alt=""
             className="absolute inset-0 w-full h-full object-contain select-none pointer-events-none"
             style={{
