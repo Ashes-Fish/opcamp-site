@@ -14,6 +14,33 @@ export default function KeywordSection() {
         />
       </div>
 
+      {/* Glow layer — ambient radial gradient */}
+      <div className="absolute inset-0 section-glow" />
+      {/* Black overlay — keeps text readable */}
+      <div className="absolute inset-0 section-fade" />
+
+      {/* Decorative floating bubbles */}
+      <div className="hero-bubble-layer absolute inset-0 z-[12] pointer-events-auto overflow-hidden">
+        {[
+          { size: 60, left: '15%', top: '30%', y: -2 },
+          { size: 100, left: '37%', top: '70%', y: -6 },
+          { size: 140, left: '59%', top: '30%', y: -10 },
+          { size: 180, left: '81%', top: '70%', y: -14 },
+        ].map((b, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bubble-glass opacity-30"
+            style={{
+              width: b.size,
+              height: b.size,
+              left: b.left,
+              top: b.top,
+              transform: `translateY(${b.y}px)`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Section head */}
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
