@@ -129,7 +129,7 @@ export default function ShootSection() {
             N°.03 / SHOOTING GALLERY
           </span>
           <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-light text-white/85">
-            戳破那些泡沫
+            剥离泡沫，泡进生活。
           </h2>
         </motion.div>
 
@@ -139,7 +139,7 @@ export default function ShootSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-60px' }}
         >
-          每个泡泡背后都有一段故事。戳开看看。
+          点击泡泡，打碎泡沫，打开每个关键词的细节。
         </motion.p>
       </div>
 

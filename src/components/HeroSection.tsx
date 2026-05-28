@@ -37,7 +37,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            // OPCamp · HOT SPRING HACKATHON
+            // V02    2026 · 5.30 - 5.31    杭州 · 良渚汤泉
           </motion.span>
 
           <motion.h1
@@ -57,16 +57,25 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            在非标的道场，做有「回旋镖」的产品
+            剥离泡沫，泡进生活。
           </motion.h2>
+
+          <motion.p
+            className="font-serif text-base md:text-lg text-white/70 max-w-xl mb-6 leading-relaxed tracking-wide"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            在松弛的空间里做有意思的创造。良渚汤泉 · 48 小时 · 关于空间、AI 产品与生活方式的实验。
+          </motion.p>
 
           <motion.p
             className="mono-line font-mono text-sm md:text-base text-white/60 mb-8 tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
-            // WORK — LIFE — BALANCE
+            A GATHERING OF OPCs | 48 HOURS OF NOT BEING NPC
           </motion.p>
 
           {/* CTA Buttons */}
@@ -84,7 +93,7 @@ export default function HeroSection() {
                          hover:bg-white/15 hover:border-white/30 transition-all
                          shadow-lg"
             >
-              ▸ 了解更多
+              报名下一期
             </a>
             <a
               href="#footer"
@@ -92,37 +101,37 @@ export default function HeroSection() {
                          border border-white/15 text-white/70 font-mono text-xs md:text-sm tracking-[0.12em] uppercase
                          hover:bg-white/5 hover:text-white/90 transition-all"
             >
-              立即报名
+              看看上期都发生了什么
             </a>
           </motion.div>
         </div>
 
         {/* Dictionary card */}
-        <motion.div
-          className="dictionary absolute right-6 md:right-12 lg:right-16 bottom-24 md:bottom-32
-                     max-w-[220px] md:max-w-[260px]"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-        >
-          <div
-            className="rounded-xl p-5 backdrop-blur-md"
-            style={{
-              background: 'rgba(4, 10, 20, 0.5)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-            }}
+          <motion.div
+            className="dictionary absolute right-6 md:right-12 lg:right-16 bottom-24 md:bottom-32
+                       max-w-[220px] md:max-w-[280px]"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
           >
-            <span className="font-mono text-[9px] tracking-[0.25em] text-white/30 block mb-2">
-              词典 / DICTIONARY
-            </span>
-            <p className="font-serif text-sm text-white/70 leading-relaxed">
-              <strong className="text-white/90 font-medium">汤泉（tāng quán）</strong>
-              <br />
-              名词。既是温泉，也是一群 OPC 在良渚的据点。
-              便宜、实惠，还能打德扑。
-            </p>
-          </div>
-        </motion.div>
+            <div
+              className="rounded-xl p-5 backdrop-blur-md"
+              style={{
+                background: 'rgba(4, 10, 20, 0.5)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+              }}
+            >
+              <span className="font-mono text-[11px] tracking-[0.08em] text-white/40 block mb-3">
+                泡 / pao /
+              </span>
+              <p className="font-serif text-sm text-white/70 leading-relaxed mb-2">
+                <b className="text-white/80 font-medium">v.</b> to soak; to immerse oneself fully. 把自己交给当下
+              </p>
+              <p className="font-serif text-sm text-white/70 leading-relaxed">
+                <b className="text-white/80 font-medium">n.</b> a bubble; something fragile, fleeting. 易碎，转瞬即逝
+              </p>
+            </div>
+          </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
