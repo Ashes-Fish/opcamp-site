@@ -2,6 +2,13 @@ import { motion } from 'framer-motion'
 import { img } from '../utils/paths'
 import { content } from '../data/content'
 
+const bubbles = [
+  { size: 60, left: '15%', top: '30%' },
+  { size: 100, left: '37%', top: '70%' },
+  { size: 140, left: '59%', top: '30%' },
+  { size: 180, left: '81%', top: '70%' },
+]
+
 export default function AboutSection() {
   return (
     <section className="section about-section relative py-24 md:py-32 px-6 md:px-12 lg:px-16 overflow-hidden" id="about">
@@ -12,6 +19,28 @@ export default function AboutSection() {
           alt=""
           className="w-full h-full object-cover"
         />
+      </div>
+
+      {/* Glow layer — matches other sections */}
+      <div className="absolute inset-0 section-glow" />
+      {/* Black semi-transparent overlay — matches other sections */}
+      <div className="absolute inset-0 section-fade" />
+
+      {/* Decorative floating bubbles */}
+      <div className="hero-bubble-layer absolute inset-0 z-[12] pointer-events-auto overflow-hidden">
+        {bubbles.map((b, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bubble-glass opacity-30"
+            style={{
+              width: b.size,
+              height: b.size,
+              left: b.left,
+              top: b.top,
+              transform: `translateY(${-(2 + i * 4)}px)`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="section-grid relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-8 md:gap-16">
