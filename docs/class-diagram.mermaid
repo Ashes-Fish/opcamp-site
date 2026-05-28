@@ -1,0 +1,170 @@
+classDiagram
+    class AppState {
+        +boolean gateVisible
+        +boolean bubbleModalOpen
+        +number activeBubbleIndex
+        +boolean isLoaded
+        +string|null loadError
+        +handleEnter()
+        +handleBubbleClick(index)
+        +handleCloseModal()
+    }
+
+    class BubbleItem {
+        +string id
+        +string label
+        +string eyebrow
+        +string body
+    }
+
+    class TimelineDay {
+        +string title
+        +Array~[string,string]~ rows
+    }
+
+    class Npc {
+        +string name
+        +string tagline
+        +string bio
+    }
+
+    class ReviewTab {
+        +string name
+        +Array~[string,string]~ items
+    }
+
+    class JoinCard {
+        +string title
+        +string description
+    }
+
+    class GateScreen {
+        +onEnter: callback
+        +handleClick()
+    }
+
+    class HeroSection {
+        +render()
+    }
+
+    class AboutSection {
+        +render()
+    }
+
+    class KeywordSection {
+        +render()
+    }
+
+    class ShootSection {
+        +BubbleItem[] bubbles
+        +onBubbleClick: callback
+        +Set~number~ poppedIndices
+        +handlePop(index)
+    }
+
+    class Bubble {
+        +BubbleItem item
+        +number index
+        +onClick: callback
+        +handleClick()
+        +spawnParticles()
+    }
+
+    class BubbleModal {
+        +boolean isOpen
+        +BubbleItem|null item
+        +number index
+        +onClose: callback
+        +handleKeydown(e)
+    }
+
+    class TimelineSection {
+        +TimelineDay[] timeline
+        +render()
+    }
+
+    class RhythmSection {
+        +string note
+        +render()
+    }
+
+    class InfoTable {
+        +Array~[string,string]~ rows
+        +render()
+    }
+
+    class NpcGrid {
+        +Npc[] npcs
+        +render()
+    }
+
+    class PhotoBreak {
+        +render()
+    }
+
+    class ReviewSection {
+        +ReviewTab[] tabs
+        +number activeTab
+        +handleTabChange(index)
+    }
+
+    class AudienceSection {
+        +string title
+        +string[] items
+        +render()
+    }
+
+    class FooterSection {
+        +string title
+        +string body
+        +JoinCard[] joinCards
+        +string[] buttons
+        +string partners
+        +render()
+    }
+
+    class FloatingCTA {
+        +boolean visible
+        +string label
+        +onClick: callback
+        +render()
+    }
+
+    class LoadingScreen {
+        +boolean isLoading
+        +render()
+    }
+
+    class ErrorScreen {
+        +string|null error
+        +onRetry: callback
+        +render()
+    }
+
+    class GlobalBackdrop {
+        +render()
+    }
+
+    class useScrollProgress {
+        +number progress
+    }
+
+    class useBubbleCursor {
+        +ref containerRef
+        +followMouse(e)
+    }
+
+    AppState --> GateScreen : props onEnter
+    AppState --> BubbleModal : props isOpen, item, index, onClose
+    AppState --> ShootSection : props bubbles, onBubbleClick
+    AppState --> FloatingCTA : props visible, onClick
+
+    ShootSection --> Bubble : contains 5
+    Bubble --> BubbleItem : uses
+
+    ReviewSection --> ReviewTab : uses
+
+    TimelineSection --> TimelineDay : uses
+    NpcGrid --> Npc : uses
+    FooterSection --> JoinCard : uses
+    AudienceSection --> string[] : uses items

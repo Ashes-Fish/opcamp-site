@@ -1,0 +1,78 @@
+sequenceDiagram
+    participant User as 用户
+    participant App as App.tsx
+    participant Gate as GateScreen
+    participant Loading as LoadingScreen
+    participant Sections as Sections
+    participant Shoot as ShootSection
+    participant Bubble as Bubble
+    participant Modal as BubbleModal
+    participant LS as localStorage
+
+    %% === 初始化流程 ===
+    rect rgb(15, 30, 60)
+        Note over App,LS: 页面初始化
+        App->>LS: getItem('gateSeen')
+        LS-->>App: null (首次访问)
+        App->>App: setGateVisible(true)
+        App->>Loading: render (isLoading=true)
+        App->>App: await document.fonts.ready
+        App->>App: setLoaded(true)
+        App->>Loading: unmount (AnimatePresence exit)
+        App->>Gate: render (gateVisible=true)
+    end
+
+    %% === Gate 进入 ===
+    rect rgb(30, 50, 30)
+        Note over User,Gate: 用户进入
+        User->>Gate: 点击"轻触开始"
+        Gate->>App: onEnter()
+        App->>App: setGateVisible(false)
+        App->>LS: setItem('gateSeen', 'true')
+        App->>Gate: 触发 exit 动画 (AnimatePresence)
+        Note over App,Sections: 主内容区域出现
+        App->>Sections: render all sections
+    end
+
+    %% === 泡泡交互 ===
+    rect rgb(50, 30, 30)
+        Note over User,Modal: 泡泡点击交互
+        User->>Bubble: 点击泡泡
+        Bubble->>Bubble: 播放 pop 动画 (scale 1→0)
+        Bubble->>Bubble: spawn 10 粒子 (散射 + fadeOut)
+        Bubble->>Shoot: onClick(index)
+        Shoot->>Shoot: poppedIndices.add(index)
+        Shoot->>App: onBubbleClick(index)
+        App->>App: setActiveBubbleIndex(index)
+        App->>App: setBubbleModalOpen(true)
+        App->>Modal: render (AnimatePresence enter)
+        Modal->>Modal: 入场动画 (scale 0.9→1, opacity 0→1)
+        Modal-->>User: 显示内容
+
+        User->>Modal: 点击 × / 背景 / 按 ESC
+        Modal->>Modal: handleClose()
+        Modal->>App: onClose()
+        App->>App: setBubbleModalOpen(false)
+        App->>Modal: trigger exit 动画 (AnimatePresence)
+    end
+
+    %% === Tab 切换 ===
+    rect rgb(30, 30, 50)
+        Note over User,Sections: Review Tab 切换
+        User->>Sections: 点击 Tab "参与成员"
+        Sections->>Sections: setActiveTab(1)
+        Sections->>Sections: AnimatePresence mode=wait
+        Sections-->>User: 显示新 Tab 内容 (cross-fade)
+    end
+
+    %% === 滚动交互 ===
+    rect rgb(40, 40, 20)
+        Note over User,App: 滚动触发 Floating CTA
+        User->>User: 向下滚动页面
+        App->>App: useScrollProgress > 0.8
+        App->>App: setCtaVisible(true)
+        App->>FloatingCTA: show (fixed bottom-right)
+        User->>User: 回到顶部
+        App->>App: setCtaVisible(false)
+        App->>FloatingCTA: hide
+    end
